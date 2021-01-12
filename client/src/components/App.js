@@ -36,5 +36,20 @@ BrowserRouter
 
 Route
 --> Visible only when the 'path' matches the current URL
---> They decide if they going to show or hide themselves
+--> They decide if they are going to show or hide themselves
+
+HOW PATH GETS MATCHED
+===========================
+
+Address Bar <-- Extracted Path (Compares) --> Route Definition
+extractedPath.contains(path)
+
+http://localhost:3000/ <-- compared --> '/' (match)
+                       <-- compared --> '/page' (no match)
+
+http://localhost:3000/page <---compared --> '/' (match)
+                           <-- compared --> '/page' (match)
+
+to override the behavior you use 'exact'
+
 */
