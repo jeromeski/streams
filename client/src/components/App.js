@@ -1,12 +1,24 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 
 const PageOne = () => {
-  return <h1>Page One</h1>;
+  return (
+    <div>
+      <h1>Page One</h1>
+      <a href='http://localhost:3000/two' alt='page two'>
+        Page Two
+      </a>
+    </div>
+  );
 };
 
 const PageTwo = () => {
-  return <h2>Page Two</h2>;
+  return (
+    <div>
+      <h2>Page Two</h2>
+      <Link to='/'>Back</Link>
+    </div>
+  );
 };
 
 const App = () => {
@@ -39,7 +51,7 @@ Route
 --> They decide if they are going to show or hide themselves
 
 HOW PATH GETS MATCHED
-===========================
+=========================== 
 
 Address Bar <-- Extracted Path (Compares) --> Route Definition
 extractedPath.contains(path)
