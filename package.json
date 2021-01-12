@@ -1,0 +1,22 @@
+{
+  "name": "streams",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm run start --prefix client"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeromeski/streams.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeromeski/streams/issues"
+  },
+  "homepage": "https://github.com/jeromeski/streams#readme"
+}
