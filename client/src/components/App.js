@@ -1,34 +1,24 @@
-import React from 'react';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
-
-const PageOne = () => {
-  return (
-    <div>
-      <h1>Page One</h1>
-      <a href='http://localhost:3000/two' alt='page two'>
-        Page Two
-      </a>
-    </div>
-  );
-};
-
-const PageTwo = () => {
-  return (
-    <div>
-      <h2>Page Two</h2>
-      <Link to='/'>Back</Link>
-    </div>
-  );
-};
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import StreamList from './streams/StreamList';
+import StreamCreate from './streams/StreamCreate';
+import StreamEdit from './streams/StreamEdit';
+import StreamDelete from './streams/StreamDelete';
+import StreamShow from './streams/StreamShow';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <div>
-        <Route exact path='/' component={PageOne} />
-        <Route exact path='/two' component={PageTwo} />
-      </div>
-    </BrowserRouter>
+    <Fragment>
+      <BrowserRouter>
+        <div>
+          <Route exact path='/' component={StreamList} />
+          <Route exact path='/streams/new' component={StreamCreate} />
+          <Route exact path='/streams/edit' component={StreamEdit} />
+          <Route exact path='/streams/delete' component={StreamDelete} />
+          <Route exact path='/streams/show' component={StreamShow} />
+        </div>
+      </BrowserRouter>
+    </Fragment>
   );
 };
 
