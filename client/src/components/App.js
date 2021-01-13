@@ -11,8 +11,8 @@ const App = () => {
   return (
     <Fragment>
       <div className='ui container'>
-        <Header />
         <BrowserRouter>
+          <Header />
           <div>
             <Route exact path='/' component={StreamList} />
             <Route exact path='/streams/new' component={StreamCreate} />
