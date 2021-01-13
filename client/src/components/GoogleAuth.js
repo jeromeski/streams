@@ -15,9 +15,14 @@ class GoogleAuth extends Component {
           this.auth = window.gapi.auth2.getAuthInstance();
           // Figure out if the user is currently signed in
           this.setState({ isSignedIn: this.auth.isSignedIn.get() });
+          this.auth.isSignedIn.listen(this.onAuthChange);
         });
     });
   }
+
+  onAuthChange = () => {
+    this.setState({ isSignedIn: this.auth.isSignedIn().get() });
+  };
 
   // Print their authentication status on the screen
   renderAuthButton() {
