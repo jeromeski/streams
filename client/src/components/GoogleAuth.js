@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signIn, signOut } from '../actions';
 
 class GoogleAuth extends Component {
   state = { isSignedIn: null };
@@ -21,8 +23,12 @@ class GoogleAuth extends Component {
     });
   }
 
-  onAuthChange = () => {
-    this.setState({ isSignedIn: this.auth.isSignedIn().get() });
+  onAuthChange = isSignedIn => {
+    if (isSignedIn) {
+      this.props.signOut();
+    } else {
+      this.props.signIn();
+    }
   };
 
   onSignInClick = () => {
@@ -39,14 +45,14 @@ class GoogleAuth extends Component {
       return null;
     } else if (this.state.isSignedIn) {
       return (
-        <button onclick={this.onSignOutClick} className='ui red google button'>
+        <button onClick={this.onSignOutClick} className='ui red google button'>
           <i className='google icon'></i>
           Sign Out
         </button>
       );
     } else {
       return (
-        <button onclick={this.onSignInClick} className='ui red google button'>
+        <button onClick={this.onSignInClick} className='ui red google button'>
           <i className='google icon'></i>
           Sign In with Google
         </button>
@@ -59,7 +65,7 @@ class GoogleAuth extends Component {
   }
 }
 
-export default GoogleAuth;
+export default connect(null, { signIn, signOut })(GoogleAuth);
 
 /* 
 gapi - google api
