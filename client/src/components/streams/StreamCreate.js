@@ -3,11 +3,15 @@ import { Field, reduxForm } from 'redux-form';
 // Field is a component, reduxForm is a function
 
 class StreamCreate extends Component {
+  renderInput({ input }) {
+    return <input {...input} />;
+  }
+
   render() {
     return (
       <div>
-        <Field name='title' />
-        <Field name='description' />
+        <Field name='title' component={this.renderInput} />
+        <Field name='description' component={this.renderInput} />
       </div>
     );
   }
