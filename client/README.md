@@ -18,3 +18,6 @@ How we want to navigate
 4. URL still changes
 5. 'History' sees updated URL, takes URL and sends it to BrowserRouter
 6. BrowserRouter communicates the URL to Route Components
+
+REDUX FORM
+*screenedshot images on root folder
